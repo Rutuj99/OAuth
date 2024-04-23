@@ -26,8 +26,28 @@ console.log(GITHUB_CLIENT_ID,"sadasdasd")
         'Accept': 'application/json'
     }
 })
-    console.log(response.data)
-});
+
+     let token=response.data.access_token;
+     console.log(response.data)
+
+     setTimeout(()=>{
+      if(token){
+        let data=axios.get(`https://api.github.com/user`, {
+          headers: {
+            authorization: `Bearer ${token}`,
+          }
+        }).then((res)=>{
+            console.log(res.data,"some data")
+        })
+  
+      }
+     
+      console.log("no token")
+     },5000)
+     
+})
+
+
 
 // 8127179bcf8355a54fc266b91d89ae6f44766aae
 
