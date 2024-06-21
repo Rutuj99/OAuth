@@ -6,7 +6,7 @@ dotenv.config();
 export default async function Connection(){
           try{
                await mongoose.connect(process.env.MY_API)
-               console.log("connected to MongoDB")
+               console.log("connected to MongoDB...")
           }catch(error){
              console.log(error)
           }
